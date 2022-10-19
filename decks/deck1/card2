@@ -1,0 +1,11 @@
+[Card]
+question = This is a question ?
+answer = This is the answer.
+example = This is an example.
+tags = tag1 tag2
+
+[SM2_Parameters]
+easiness = 1
+interval = 0
+repetitions = 17
+review_date = 2022-09-24
