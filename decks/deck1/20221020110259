@@ -5,8 +5,8 @@ example = This is an example.
 tags = tag1, tag2
 
 [SM2_Parameters]
-easiness = 1.8000000000000005
-interval = 0
-repetitions = 23
-review_date = 2022-10-20
+easiness = 1.4800000000000004
+interval = 1
+repetitions = 0
+review_date = 2022-10-21
 

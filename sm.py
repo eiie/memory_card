@@ -43,14 +43,14 @@ def update_card_parameters(card, parameter, parameter_value):
 
 
 # update SMTwo parameters : easiness, interval, repetitions and review_date
-def update_sm2_parameters(card, quality):
-    for c in card:
+def update_sm2_parameters(c, quality):
+    # for c in card:
         card_config = configparser.ConfigParser()
         card_config.read(c)
         card_easiness = card_config['SM2_Parameters']['easiness']
         card_interval = card_config['SM2_Parameters']['interval']
         card_repetitions = card_config['SM2_Parameters']['repetitions']
-        sm2_parameters = SMTwo(float(card_easiness), int(card_interval), int(card_repetitions)).review(quality)
+        sm2_parameters = SMTwo(float(card_easiness), int(card_interval), int(card_repetitions)).review(int(quality))
         card_config.set('SM2_Parameters', 'easiness', str(sm2_parameters.easiness))
         card_config.set('SM2_Parameters', 'interval', str(sm2_parameters.interval))
         card_config.set('SM2_Parameters', 'repetitions', str(sm2_parameters.repetitions))
@@ -60,18 +60,20 @@ def update_sm2_parameters(card, quality):
 
 
 # display a card
-def display_cards(card):
-    for c in card:
+def display_card(c):
+    # for c in card:
         card_config = configparser.ConfigParser()
         card_config.read(c)
         card_question = card_config['Card']['question']
         card_answer = card_config['Card']['answer']
         card_example = card_config['Card']['example']
         card_tags = card_config['Card']['tags']
-        print('question:', card_question)
-        print('answer:', card_answer)
-        print('example:', card_example)
-        print('tags:', card_tags)
+        # print('question:', card_question)
+        # print('answer:', card_answer)
+        # print('example:', card_example)
+        # print('tags:', card_tags)
+        # print('')
+        return card_question, card_answer, card_example, card_tags
 
 
 # list cards ready for review
@@ -138,7 +140,6 @@ def list_cards_tag(decks_path, tag):
 # print(list_cards_deck(decks_path, deck))
 # print('cards_tag')
 # print(list_cards_tag(decks_path, tag))
-
 # print('is_it_review_time ? all')
 # print(is_it_review_time(list_cards_all(decks_path)))
 # print('is_it_review_time ? deck')
@@ -154,36 +155,22 @@ def list_cards_tag(decks_path, tag):
 # print('create a card')
 # create_card(decks_path, "deck2", "a", "b", "c", "d")
 
-# Create a card from scratch (question, answer, tags)
-# Modify  a card (question / answer / tags (add, remove))
-## Increment card number
-# config = configparser.ConfigParser()
-# config['Card'] = {'question': 'This is a question ?',
-#                   'answer': 'This is the answer.',
-#                   'example': 'This is an example.',
-#                   'tags': 'tag1, tag2'}
-# config['SM2_Parameters'] = {'easiness': '1',
-#                             'interval': '0',
-#                             'repetitions': '17',
-#                             'review_date': '2022-09-24'}
-
-
+# Resources :
 # https://github.com/alankan886/SuperMemo2
 # https://docs.python.org/3/library/configparser.html
-
 
 # Ecrans :
 # - Tout réviser (afficher nombre de carte à réviser et le nombre de carte totale)
 #         - Revue des cartes une par une (question, réponse et exemple, qualité) + option modifier
 # - Paquets
-#     - Choisir le paquet (afficher nombre de carte à réviser et le nombre de carte totale ainsi que les tags du paquets)
+#     - Choisir le paquet (afficher nombre de carte à réviser et le nombre de carte totale)
 #         - Révision (SM2)
 #             - Revue des cartes une par une (question, réponse et exemple, qualité) + option modifier
 #         - Révision de tout le paquet
 #             - Revue des cartes une par une (question, réponse et exemple, qualité) + option modifier
-#         - Modifier le paquet
-#             - Nom du paquet
-#             - Liste des cartes (modifier)
+#         - Ajouter une carte
+#         - Modifier le nom du paquet
+#         - Modifier des cartes (liste + option modifier)
 # - Tags
 #     - Choisir le/les tags (afficher nombre de carte à réviser et le nombre de
 #       carte totale ainsi que les paquets correspondants)
@@ -191,9 +178,7 @@ def list_cards_tag(decks_path, tag):
 #             - Revue des cartes une par une (question, réponse et exemple, qualité) + option modifier
 #         - Révision de tout le(s) tag(s) sélectionné(s)
 #             - Revue des cartes une par une (question, réponse et exemple, qualité) + option modifier
-#         - Modifier le/les tags
-#             - Nom du tag
-#             - Liste des cartes (modifier)
+#         - Modifier des cartes (liste + option modifier)
 
 # Fonctions :
 #     + Afficher une carte
