@@ -1,11 +1,12 @@
 [Card]
-question = This is a question ?
+question = quetol
 answer = This is the answer.
 example = This is an example.
 tags = tag1 tag3
 
 [SM2_Parameters]
-easiness = 1
-interval = 0
+easiness = 3.0000000000000013
+interval = 739962
 repetitions = 17
-review_date = 2022-09-24
+review_date = 4048-09-30
+

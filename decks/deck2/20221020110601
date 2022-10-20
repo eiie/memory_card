@@ -1,0 +1,12 @@
+[Card]
+question = a
+answer = b
+example = c
+tags = d
+
+[SM2_Parameters]
+easiness = 1.96
+interval = 1
+repetitions = 0
+review_date = 2022-10-21
+

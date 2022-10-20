@@ -2,11 +2,11 @@
 question = This is a question ?
 answer = This is the answer.
 example = This is an example.
-tags = tag1 tag2
+tags = tag1, tag2
 
 [SM2_Parameters]
-easiness = 3.0000000000000013
-interval = 739962
-repetitions = 17
-review_date = 4048-09-30
+easiness = 1.8000000000000005
+interval = 0
+repetitions = 23
+review_date = 2022-10-20
 
